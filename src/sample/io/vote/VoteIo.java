@@ -1,87 +1,89 @@
 package sample.io.vote;
 
+import net.minidev.json.JSONObject;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.*;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import sample.domain.vote.Vote;
 import sample.io.Api;
 import sample.io.IoInterface;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class VoteIo implements IoInterface<Vote, String> {
-    private static String voteURL= Api.getApi()+"vote/";
+
+    private static VoteIo voteIo;
+    private static RestTemplate restTemplate = new RestTemplate();
+    private static HttpHeaders headers = new HttpHeaders();
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private static JSONObject personJsonObject;
+
+    private static String voteURL= Api.getApi()+"vote/";
+
+    public VoteIo()
+    {}
+
+    public static VoteIo getVoteIo() {
+        if (voteIo==null){
+            voteIo = new VoteIo();
+        }
+        return voteIo;
+    }
 
     @Override
     public int create(Vote vote) throws IOException {
-        URL url = new URL(voteURL+"create");
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-type","application/json; utf-8");
-        con.setRequestProperty("Accept","application/json");
-        con.setDoOutput(true);
-
-        String jsonInputString ="{\"id\": \""+vote.getId()+"\",\"candidateId\": \""+vote.getId()+"\",\"date\": \""+vote.getDate()+"\",\"locationId\": \""+vote.getLocation()+"\"}";
-
-
-        try(OutputStream os = con.getOutputStream()){
-            byte[] input = jsonInputString.getBytes("utf-8");
-            os.write(input,0,input.length);
-        }
-        int code = con.getResponseCode();
-        //System.out.println(code);
-        return code;
+        String createPersonUrl = voteURL + "create";
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        personJsonObject = new JSONObject();
+        ResponseEntity<Vote> response = restTemplate.postForEntity(createPersonUrl, vote, Vote.class);
+        return response .getStatusCode().value();
     }
-
 
     @Override
     public int update(Vote vote) throws IOException {
-        URL url = new URL(voteURL+"create");
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-type","application/json; utf-8");
-        con.setRequestProperty("Accept","application/json");
-        con.setDoOutput(true);
-
-        String jsonInputString ="{\"id\": \""+vote.getId()+"\",\"candidateId\": \""+vote.getId()+"\",\"date\": \""+vote.getDate()+"\",\"locationId\": \""+vote.getLocation()+"\"}";
-
-        try(OutputStream os = con.getOutputStream()){
-            byte[] input = jsonInputString.getBytes("utf-8");
-            os.write(input,0,input.length);
-        }
-        int code = con.getResponseCode();
-        //System.out.println(code);
-        return code;
+        String createPersonUrl = voteURL + "update";
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        personJsonObject = new JSONObject();
+        ResponseEntity<Vote> response = restTemplate.postForEntity(createPersonUrl, vote, Vote.class);
+        return response.getStatusCode().value();
     }
 
     @Override
     public Vote read(String id) throws IOException {
-        URL url = new URL(voteURL+"read?id="+id);
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("Content-type","application/json; utf-8");
-        con.setRequestProperty("Accept","application/json");
-        con.setDoOutput(true);
-
-
-        System.out.println(con.getResponseMessage());
-        return null;
+        String readUrl = voteURL + "read?id="+id;
+        ResponseEntity<Vote> response = restTemplate.getForEntity(readUrl,Vote.class);
+        return response.getBody();
     }
 
     @Override
     public Boolean delete(String id) {
-        return null;
+        String deleteUrl = voteURL + "delete?id="+id;
+        ResponseEntity<Boolean> response = restTemplate.getForEntity(deleteUrl,Boolean.class);
+        return response.getBody();
     }
 
     @Override
     public String readAll() {
-        return null;
+        String deleteURL = voteURL + "readAll";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+        ResponseEntity<String> response = restTemplate.exchange(deleteURL, HttpMethod.GET,entity, String.class);
+        //System.out.println(response.getBody());
+        return response.getBody();
     }
 
     @Override
     public Long count() {
-        return null;
+        String deleteURL = voteURL + "count";
+        ResponseEntity<Long> response = restTemplate.getForEntity(deleteURL, Long.class);
+        return response.getBody();
+    }
+
+    public static void main(String[] args) {
+        VoteIo voteIo = new VoteIo();
+        System.out.println(voteIo.readAll());
     }
 }

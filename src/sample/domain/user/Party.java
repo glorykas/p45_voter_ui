@@ -4,14 +4,24 @@ public class Party {
     private String id;
     private String name;
     private String description;
+    private byte[] flag;
 
     public Party() {
     }
 
-    public Party(String id, String name, String description) {
+    public Party(String id, String name, String description,byte[] flag) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.flag = flag;
+    }
+
+    public byte[] getFlag() {
+        return flag;
+    }
+
+    public void setFlag(byte[] flag) {
+        this.flag = flag;
     }
 
     public String getId() {
@@ -36,5 +46,9 @@ public class Party {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

@@ -37,9 +37,9 @@ public class Voter_io implements IoInterface<Voter, Integer> {
         String createPersonUrl = voteURL + "create";
         headers.setContentType(MediaType.APPLICATION_JSON);
         personJsonObject = new JSONObject();
-        ResponseEntity<Voter> reponse = restTemplate.postForEntity(createPersonUrl, voter, Voter.class);
-        //System.out.println(reponse.getBody().getId());
-        return reponse.getStatusCode().value();
+        ResponseEntity<Voter> response = restTemplate.postForEntity(createPersonUrl, voter, Voter.class);
+        //System.out.println(response.getBody().getId());
+        return response.getStatusCode().value();
     }
 
     @Override
@@ -47,9 +47,9 @@ public class Voter_io implements IoInterface<Voter, Integer> {
         String createPersonUrl = voteURL + "update";
         headers.setContentType(MediaType.APPLICATION_JSON);
         personJsonObject = new JSONObject();
-        ResponseEntity<Voter> reponse = restTemplate.postForEntity(createPersonUrl, voter, Voter.class);
-        //System.out.println(reponse.getBody().getId());
-        return reponse.getStatusCode().value();
+        ResponseEntity<Voter> response = restTemplate.postForEntity(createPersonUrl, voter, Voter.class);
+        //System.out.println(response.getBody().getId());
+        return response.getStatusCode().value();
     }
 
     @Override

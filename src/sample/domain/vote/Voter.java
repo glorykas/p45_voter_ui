@@ -1,21 +1,25 @@
 package sample.domain.vote;
 
+import java.io.File;
+
 public class Voter {
 
     private String id;
     private String name;
     private String surname;
     private String phoneNumber;
+    private byte[] image;
 
     public Voter() {
     }
 
-    public Voter(String id, String name, String surname, String phoneNumber) {
+    public Voter(String id, String name, String surname, String phoneNumber, byte[] file) {
 
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
+        this.image = file;
     }
 
     public String getId() {
@@ -24,6 +28,14 @@ public class Voter {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public String getName() {
@@ -57,6 +69,7 @@ public class Voter {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", image=" + image +
                 '}';
     }
 }

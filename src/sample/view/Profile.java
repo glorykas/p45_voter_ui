@@ -11,9 +11,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.apache.commons.io.FileUtils;
 import sample.domain.vote.Voter;
+import sun.misc.BASE64Decoder;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.util.Base64;
 
 
 public class Profile {
@@ -31,25 +36,45 @@ public class Profile {
     @FXML
     private Image myImage;
 
-    public void initData(Voter voter){
+    public void initData(Voter voter) throws IOException {
         surname.setText(voter.getSurname());
         name.setText(voter.getName());
         phone.setText(voter.getPhoneNumber());
         id.setText(voter.getId());
 
-        Image image = null;
-        profilePicture.setImage(null);
+        byte[] image = voter.getImage();
+        System.out.println(image);
+
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.getDecoder().decode(voter.getImage()));
+        profilePicture.setImage(new Image(byteArrayInputStream));
+//        try {
+//            wait(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void setOnAction(ActionEvent event) throws IOException {
-        Parent profileParent = FXMLLoader.load(getClass() .getResource("third.fxml"));
-        Scene profileScene = new Scene(profileParent);
+//        Parent profileParent = FXMLLoader.load(getClass() .getResource("third.fxml"));
+//        Scene profileScene = new Scene(profileParent);
+//        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        window.setScene(profileScene);
+//        window.show();
+
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("third.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
+        third profile = loader.getController();
+        profile.fillTheImageView();
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(profileScene);
+        window.setScene(scene);
         window.show();
 
 
     }
+
 
     public static void main(String[] args){}
 }

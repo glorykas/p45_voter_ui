@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.third">
+   <children>
+      <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Political Parti Selection">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView id="EFF" fitHeight="94.0" fitWidth="125.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../source/economic-freedom-fighters-logo-B4832240E2-seeklogo.com.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="125.0" layoutX="28.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../source/1200px-African_Independent_Congress_logo.svg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="132.0" layoutX="22.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../source/DA-Logo-Landscape-.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="147.0" layoutX="456.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../source/Al_Jama-ah_logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="132.0" layoutX="436.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../source/0000885129_resized_anclogo1022.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="132.0" layoutX="454.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../source/1200px-ACDP_logo.svg_.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="274.0" layoutY="245.0" mnemonicParsing="false" onAction="#OnClicked" text="Button" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.Profile">
+   <children>
+      <ImageView fx:id="profilePicture" fitHeight="175.0" fitWidth="256.0" layoutX="310.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="309.6731414794922" AnchorPane.rightAnchor="126.65371704101562" AnchorPane.topAnchor="79.0">
+         <image>
+            <Image fx:id="myImage" url="@../../../../../Pictures/100CANON/Glory/IMG6709.png" />
+         </image></ImageView>
+      <Button fx:id="imageview" layoutX="474.0" layoutY="389.0" mnemonicParsing="false" onAction="#setOnAction" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #FF0000;" text="Next" textFill="#ebebeb" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <Text layoutX="27.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname: " wrappingWidth="55.13671875" AnchorPane.leftAnchor="27.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text layoutX="28.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " wrappingWidth="41.13671875" AnchorPane.leftAnchor="28.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text layoutX="27.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: " wrappingWidth="21.0" AnchorPane.leftAnchor="27.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text layoutX="25.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number: " wrappingWidth="91.0" AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text fill="#032583" layoutX="242.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voter Info" wrappingWidth="116.13671875" AnchorPane.topAnchor="14.1015625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label fx:id="surname" layoutX="90.0" layoutY="120.0" text="Label" />
+      <Label fx:id="name" layoutX="70.0" layoutY="149.0" text="Label" />
+      <Label fx:id="id" layoutX="56.0" layoutY="181.0" text="Label" />
+      <Label fx:id="phone" layoutX="118.0" layoutY="209.0" text="Label" />
+   </children>
+</AnchorPane>

@@ -17,10 +17,14 @@
          </font>
       </Text>
       <Button layoutX="528.0" layoutY="461.0" mnemonicParsing="false" onAction="#OnClicked" text="Button" />
-      <VBox fx:id="vBoxId" layoutX="17.0" layoutY="52.0" prefHeight="397.0" prefWidth="566.0" spacing="30.0">
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-      </VBox>
+      <ScrollPane layoutX="34.0" layoutY="63.0" prefHeight="338.0" prefWidth="533.0">
+         <content>
+            <VBox fx:id="vBoxId" prefHeight="338.0" prefWidth="530.0" spacing="30.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

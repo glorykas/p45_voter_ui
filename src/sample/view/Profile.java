@@ -41,26 +41,13 @@ public class Profile {
         name.setText(voter.getName());
         phone.setText(voter.getPhoneNumber());
         id.setText(voter.getId());
-
         byte[] image = voter.getImage();
         System.out.println(image);
-
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.getDecoder().decode(voter.getImage()));
         profilePicture.setImage(new Image(byteArrayInputStream));
-//        try {
-//            wait(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public void setOnAction(ActionEvent event) throws IOException {
-//        Parent profileParent = FXMLLoader.load(getClass() .getResource("third.fxml"));
-//        Scene profileScene = new Scene(profileParent);
-//        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        window.setScene(profileScene);
-//        window.show();
-
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("third.fxml"));
@@ -71,8 +58,6 @@ public class Profile {
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
-
-
     }
 
 

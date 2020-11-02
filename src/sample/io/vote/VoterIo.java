@@ -11,10 +11,10 @@ import sample.io.IoInterface;
 import java.io.IOException;
 
 
-public class Voter_io implements IoInterface<Voter, Integer> {
+public class VoterIo implements IoInterface<Voter, Integer> {
 
 
-    private static Voter_io voter_io;
+    private static VoterIo voterIo;
 
     private static RestTemplate restTemplate= new RestTemplate();
     private static HttpHeaders headers = new HttpHeaders();
@@ -22,14 +22,14 @@ public class Voter_io implements IoInterface<Voter, Integer> {
     private static JSONObject personJsonObject;
     private static String voteURL = Api.getApi() + "voter/";
 
-    public Voter_io() {
+    public VoterIo() {
     }
 
-    public static Voter_io getVoter_io() {
-        if (voter_io == null) {
-            voter_io  = new Voter_io();
+    public static VoterIo getVoterIo() {
+        if (voterIo == null) {
+            voterIo = new VoterIo();
         }
-        return voter_io;
+        return voterIo;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class Voter_io implements IoInterface<Voter, Integer> {
     }
 
     public static void main(String[] args) throws IOException {
-        Voter_io voter_io = new Voter_io();
-        System.out.println(voter_io.read("0102").toString());
+        VoterIo voterIo = new VoterIo();
+        System.out.println(voterIo.read("0102").toString());
     }
 }

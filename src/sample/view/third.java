@@ -73,8 +73,8 @@ public class third {
             selectParty(imageView,partyName, partyId,image);
             label = new Label(partyName);
             imageView.setImage(new Image(byteArrayInputStream));
-            imageView.setFitHeight(100);
-            imageView.setFitWidth(100);
+            imageView.setFitHeight(175);
+            imageView.setFitWidth(200);
             vBoxId.getChildren().add(imageView);
             vBoxId.getChildren().add(label);
             vBoxId.setLayoutX(5);

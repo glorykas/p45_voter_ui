@@ -1,5 +1,6 @@
 package sample.view;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,6 +24,7 @@ import sample.domain.user.Party;
 import sample.domain.vote.Vote;
 import sample.io.user.PartyIO;
 
+import javax.swing.*;
 import javax.swing.text.html.ListView;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -45,13 +48,13 @@ public class third {
     public third() throws IOException {
     }
 
-    public void OnClicked(ActionEvent event) throws IOException {
-            Parent thirdParent = FXMLLoader.load(getClass() .getResource("fourth.fxml"));
-            Scene thirdScene = new Scene(thirdParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(thirdScene);
-            window.show();
-        }
+//    public void OnClicked(ActionEvent event) throws IOException {
+//            Parent thirdParent = FXMLLoader.load(getClass() .getResource("fourth.fxml"));
+//            Scene thirdScene = new Scene(thirdParent);
+//            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            window.setScene(thirdScene);
+//            window.show();
+//        }
         public void fillTheImageView() throws IOException {
             List<Party> parties =partyIO.readAllList();
             for (int i = 0; i<parties.size();i++){
@@ -76,6 +79,17 @@ public class third {
             vBoxId.getChildren().add(label);
             vBoxId.setLayoutX(5);
             vBoxId.setSpacing(10);
+            ScrollBar scroll = new ScrollBar();
+            scroll.setMin(0);
+            scroll.setOrientation(Orientation.VERTICAL);
+            scroll.setPrefHeight(200);
+            scroll.setPrefWidth(20);
+            scroll.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
+                vBoxId.setLayoutY(-new_val.doubleValue());
+            });
+
+
+
         }
 
     private void selectParty(ImageView imageView,String partyName,String partyId,byte[] image){
@@ -106,28 +120,30 @@ public class third {
         window.setScene(scene);
         window.show();
     }
-    public void addScrollbar(){
-        ScrollBar sc = new ScrollBar();
-        sc.setMin(0);
-        sc.setMax(100);
-        sc.setValue(50);
+//    public void addScrollbar(){
+//        ScrollBar sc = new ScrollBar();
+//        sc.setMin(0);
+//        sc.setMax(300);
+//        sc.setValue(50);
+//
+//        shadow.setColor(Color.GREY);
+//        shadow.setOffsetX(2);
+//        shadow.setOffsetY(2);
+//
+//        vBoxId.setLayoutX(5);
+//        vBoxId.setSpacing(10);
+//
+//        //sc.setLayoutX(scene.getWidth()-sc.getWidth());
+//        sc.setMin(0);
+//        sc.setOrientation(Orientation.VERTICAL);
+//        sc.setPrefHeight(180);
+//        sc.setMax(360);
+//
+//        root.getChildren().addAll(vBoxId, sc);
+//
+//    }
 
-        shadow.setColor(Color.GREY);
-        shadow.setOffsetX(2);
-        shadow.setOffsetY(2);
 
-        vBoxId.setLayoutX(5);
-        vBoxId.setSpacing(10);
-
-        //sc.setLayoutX(scene.getWidth()-sc.getWidth());
-        sc.setMin(0);
-        sc.setOrientation(Orientation.VERTICAL);
-        sc.setPrefHeight(180);
-        sc.setMax(360);
-
-        root.getChildren().addAll(vBoxId, sc);
-
-    }
 
     public static void main(String[] args){}
 }

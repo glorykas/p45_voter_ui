@@ -22,6 +22,8 @@ public class Sample {
     private TextField idField;
     @FXML
     private Button idBtn;
+    @FXML
+    private Button closeBtn;
 
 //    private Label surNameLabel;
 //    private Label nameLabel;
@@ -73,6 +75,13 @@ public class Sample {
         }
 
         idBtn.setVisible(true);
+    }
+
+    public void closeBtn(){
+        // get a handle to the stage
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     public static void main(String[] args){}

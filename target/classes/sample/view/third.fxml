@@ -18,7 +18,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <ScrollPane fx:id="scrollPane" pannable="true" layoutX="61.0" layoutY="43.0" prefHeight="439.0" prefWidth="478.0">
+      <ScrollPane fx:id="scrollPane" layoutX="61.0" layoutY="43.0" prefHeight="439.0" prefWidth="478.0">
          <content>
             <VBox fx:id="vBoxId" alignment="CENTER" fillWidth="false" prefHeight="441.0" prefWidth="475.0" spacing="30.0">
                <padding>

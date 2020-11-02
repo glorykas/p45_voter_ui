@@ -13,8 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import sample.domain.vote.Voter;
-import sample.io.vote.Voter_io;
-import sample.view.Profile;
+import sample.io.vote.VoterIo;
 
 import java.io.IOException;
 
@@ -39,9 +38,9 @@ public class Sample {
 
 
 
-        Voter_io voter_io =new Voter_io();
+        VoterIo voterIo =new VoterIo();
         //System.out.println(idField.getText());
-        Voter voter = voter_io.read(voterId);
+        Voter voter = voterIo.read(voterId);
         if (voter!=null){
 
             FXMLLoader loader = new FXMLLoader();

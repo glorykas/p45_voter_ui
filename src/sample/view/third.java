@@ -74,7 +74,7 @@ public class third {
             label = new Label(partyName);
             imageView.setImage(new Image(byteArrayInputStream));
             imageView.setFitHeight(175);
-            imageView.setFitWidth(200);
+            imageView.setFitWidth(250);
             vBoxId.getChildren().add(imageView);
             vBoxId.getChildren().add(label);
             vBoxId.setLayoutX(5);

@@ -11,14 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.third">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="582.0" style="-fx-background-color: #04132D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.third">
    <children>
-      <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Political Parti Selection" textAlignment="CENTER">
+      <Text fill="WHITE" layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Political Parti Selection" textAlignment="CENTER">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <ScrollPane fx:id="scrollPane" layoutX="61.0" layoutY="43.0" prefHeight="439.0" prefWidth="478.0">
+      <ScrollPane fx:id="scrollPane" layoutX="58.0" layoutY="61.0" prefHeight="439.0" prefWidth="478.0">
          <content>
             <VBox fx:id="vBoxId" alignment="CENTER" fillWidth="false" prefHeight="441.0" prefWidth="475.0" spacing="30.0">
                <padding>

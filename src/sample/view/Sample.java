@@ -67,7 +67,7 @@ public class Sample {
             //show a notification error and allow the user to try again.
             Notifications.create()
                     .text("User not found, try again!") .darkStyle()
-                    .hideAfter(Duration.seconds(1))
+                    .hideAfter(Duration.seconds(5))
                     .position(Pos.CENTER)
                     .show();
 

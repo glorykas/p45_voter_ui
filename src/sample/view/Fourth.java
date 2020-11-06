@@ -61,7 +61,7 @@ public class Fourth {
             Notifications.create()
                     .title("Confirmation of the vote")
                     .text("Successful!") .darkStyle()
-                    .hideAfter(Duration.seconds(1))
+                    .hideAfter(Duration.seconds(5))
                     .position(Pos.CENTER)
                     .show();
 

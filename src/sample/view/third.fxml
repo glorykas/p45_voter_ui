@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="582.0" style="-fx-background-color: #04132D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.third">
    <children>
-      <Text fill="WHITE" layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Political Parti Selection" textAlignment="CENTER">
+      <Text fill="WHITE" layoutX="158.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Political Party Selection" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

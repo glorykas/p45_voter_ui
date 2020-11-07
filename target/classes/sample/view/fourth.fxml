@@ -24,7 +24,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Label fx:id="partyName" alignment="CENTER" layoutX="58.0" layoutY="356.0" prefHeight="27.0" prefWidth="485.0" text="PARTY NAME" textFill="WHITE">
+      <Label fx:id="partyName" alignment="CENTER" layoutX="58.0" layoutY="110.0" prefHeight="27.0" prefWidth="485.0" text="PARTY NAME" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>

@@ -33,11 +33,13 @@ public class Fourth {
     @FXML
     private Image myImage;
     String partyIdString=null;
+    private String voterId;
 
 
-    public void initFourth(byte[] bytes, String Name,String partyId){
+    public void initFourth(byte[] bytes, String Name,String partyId,String voterIdString){
         System.out.println(bytes);
         partyIdString=partyId;
+        voterId=voterIdString;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.getDecoder().decode(bytes));
         partyPicture.setImage(new Image(byteArrayInputStream));
         partyPicture.setFitHeight(250);
@@ -47,7 +49,7 @@ public class Fourth {
 
     public void OnClicked(ActionEvent event){
         //Building Vote Object
-        Vote vote = new Vote("",partyIdString,new Date().toString(),"");
+        Vote vote = new Vote("",partyIdString,new Date().toString(),"",voterId);
         //Sending Vote Object to the api.
         try {
             voterIo.create(vote);
@@ -92,7 +94,7 @@ public class Fourth {
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         third profile = loader.getController();
-        profile.fillTheImageView();
+        profile.fillTheImageView(voterId);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();

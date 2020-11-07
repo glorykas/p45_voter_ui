@@ -35,11 +35,13 @@ public class Profile {
     private ImageView profilePicture;
     @FXML
     private Image myImage;
+    private String voterId;
 
     public void initData(Voter voter) throws IOException {
         surname.setText(voter.getSurname());
         name.setText(voter.getName());
         phone.setText(voter.getPhoneNumber());
+        voterId = voter.getId();
         id.setText(voter.getId());
         byte[] image = voter.getImage();
         System.out.println(image);
@@ -54,7 +56,7 @@ public class Profile {
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         third profile = loader.getController();
-        profile.fillTheImageView();
+        profile.fillTheImageView(voterId);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();

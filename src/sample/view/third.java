@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import sample.domain.user.Party;
 import sample.domain.vote.Vote;
@@ -39,6 +40,7 @@ public class third {
     private VBox vBoxId;
     @FXML
     private Label label;
+    private String voterIdString;
 
     DropShadow shadow = new DropShadow();
     Group root = new Group();
@@ -55,7 +57,8 @@ public class third {
 //            window.setScene(thirdScene);
 //            window.show();
 //        }
-        public void fillTheImageView() throws IOException {
+        public void fillTheImageView(String voterId) throws IOException {
+            voterIdString = voterId;
             List<Party> parties =partyIO.readAllList();
             for (int i = 0; i<parties.size();i++){
                 try {
@@ -72,6 +75,7 @@ public class third {
             imageView.setId(party.getId());
             selectParty(imageView,partyName, partyId,image);
             label = new Label(partyName);
+            label.setFont(new Font("Arial", 18));
             imageView.setImage(new Image(byteArrayInputStream));
             imageView.setFitHeight(175);
             imageView.setFitWidth(250);
@@ -97,7 +101,7 @@ public class third {
         imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Vote vote = new Vote("",partyId,new Date().toString(),"");
+                Vote vote = new Vote("",partyId,new Date().toString(),"",voterIdString);
                 System.out.println("New Vote: "+vote.getCandidateId()+" Party: "+partyName);
                 try {
                     toConfirm(event.getSource(),image,partyName,partyId);
@@ -115,7 +119,7 @@ public class third {
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         Fourth fourth = loader.getController();
-        fourth.initFourth(byteArrayInputStream,partyName,partyId);
+        fourth.initFourth(byteArrayInputStream,partyName,partyId,voterIdString);
         Stage window = (Stage) ((Node) object).getScene().getWindow();
         window.setScene(scene);
         window.show();

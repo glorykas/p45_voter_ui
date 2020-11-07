@@ -4,16 +4,19 @@ public class Vote {
     private String id;
     private String candidateId;
     private String date;
-    private  String location;
+    private  String locationId;
+    private String voterId;
+
 
     public Vote() {
     }
 
-    public Vote(String id, String candidateId, String date, String location) {
+    public Vote(String id, String candidateId, String date, String locationId,String voterId) {
         this.id = id;
         this.candidateId = candidateId;
         this.date = date;
-        this.location = location;
+        this.locationId = locationId;
+        this.voterId = voterId;
     }
 
     public String getId() {
@@ -28,6 +31,14 @@ public class Vote {
         return candidateId;
     }
 
+    public String getVoterId() {
+        return voterId;
+    }
+
+    public void setVoterId(String voterId) {
+        this.voterId = voterId;
+    }
+
     public void setCandidateId(String candidateId) {
         this.candidateId = candidateId;
     }
@@ -40,11 +51,11 @@ public class Vote {
         this.date = date;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLocationId() {
+        return locationId;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
     }
 }

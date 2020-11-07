@@ -66,12 +66,10 @@ public class Sample {
         }else {
             //show a notification error and allow the user to try again.
             Notifications.create()
-                    .text("User not found, try again!") .darkStyle()
+                    .text("invalid User.") .darkStyle()
                     .hideAfter(Duration.seconds(5))
                     .position(Pos.CENTER)
                     .show();
-
-
         }
 
         idBtn.setVisible(true);
